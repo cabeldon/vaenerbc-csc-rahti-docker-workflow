@@ -5,6 +5,15 @@ app = FastAPI()
 @app.get("/")
 def read_root():
     return { "msg": "Swag!", "v": "0.1" }
+    
+@app.get("/api/ip")
+def ip(request: Request):
+    return { "ip": request.client.host }
+
+
+@app.get("/ip, response_class=HTMLResponse")
+def ip(request: Request):
+    return f"<h1>Din ip här {request.client.host}</h1>"
 
 @app.get("/items/{id}")
 def read_item(item_id: int, q: str = None):

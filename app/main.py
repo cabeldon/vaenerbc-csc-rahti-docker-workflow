@@ -12,7 +12,7 @@ def ip(request: Request):
 
 
 @app.get("/ip, response_class=HTMLResponse")
-def ip(request: Request):
+def ip_html(request: Request):
     return f"<h1>Din ip här {request.client.host}</h1>"
 
 @app.get("/items/{id}")

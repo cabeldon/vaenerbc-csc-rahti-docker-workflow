@@ -1,39 +1,37 @@
-@apiURL = https://fw-teaching.fi/demo/wdbocms/api/v1/products/
+@apiURL = https://vaenerbc-csc-rahti-docker-workflow-git-vaenerbc-rahti-projekt-1.2.rahtiapp.fi/rooms
 
 ### Get all products
 GET {{apiURL}}
 
 ### Get One Product
-GET {{apiURL}}/1002
+GET {{apiURL}}/
 
 ### Create new product
 POST {{apiURL}}
 Content-Type: application/json
 
 {
-    "name": "Jeans",
-    "price": 49
+
 }
 
 ### Updatera product info (Patch)
 # PUT uppdaterar allt
-PUT {{apiURL}}/1001
+PUT {{apiURL}}/
 Content-Type: application/json
 
 {
-    "name": "Shirt",
-    "price": 49
+
 }
 ### Update product info
 # Patch updaterar enskillda saker
-PATCH {{apiURL}}/1001
+PATCH {{apiURL}}/
 Content-Type: application/json
 
 {
-    "price": 29
+   
 }
 
 
 
 ### Delete all products
-DELETE {{apiURL}}/1004
+DELETE {{apiURL}}/

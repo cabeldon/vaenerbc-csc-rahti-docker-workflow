@@ -1,5 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
 
 origins = [
@@ -35,6 +37,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 @app.get("/rooms")
 def get_rooms():
     return rooms

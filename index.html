@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>
+        My public IP is
+    </h3>
+
+    <script>
+        const apiURL = "https://github.com/cabeldon/vaenerbc-csc-rahti-docker-workflow.git"
+
+        async function getIP()
+        {
+            const res = await fetch(apiURL);
+            const data = await res.json();
+
+            console.log(data);
+            document.getElementById("ip").textContent = data.ip;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,37 +1,12 @@
-@apiURL = https://vaenerbc-csc-rahti-docker-workflow-git-vaenerbc-rahti-projekt-1.2.rahtiapp.fi/rooms
+@apiURL = http://localhost:8080
 
-### Get all products
-GET {{apiURL}}
+### Get all rooms
+GET {{apiURL}}/rooms
 
-### Get One Product
-GET {{apiURL}}/
-
-### Create new product
-POST {{apiURL}}
+### Create new booking
+POST {{apiURL}}/bookings
 Content-Type: application/json
 
 {
-
+    "room_id": 1
 }
-
-### Updatera product info (Patch)
-# PUT uppdaterar allt
-PUT {{apiURL}}/
-Content-Type: application/json
-
-{
-
-}
-### Update product info
-# Patch updaterar enskillda saker
-PATCH {{apiURL}}/
-Content-Type: application/json
-
-{
-   
-}
-
-
-
-### Delete all products
-DELETE {{apiURL}}/

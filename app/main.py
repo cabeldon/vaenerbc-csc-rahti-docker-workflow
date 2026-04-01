@@ -7,9 +7,18 @@ app = FastAPI()
 origins = [
     "*"
 ]
-rooms = [
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+temp_rooms = [
     {  
-         "room_number": 101,
+        "room_number": 101,
         "beds" : 2, 
         "price": 600
     },
@@ -28,30 +37,21 @@ rooms = [
         "beds" : 2, 
         "price": 600
     }
-
 ]
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+
+@app.get("/")
+def read_root():
+    return {"msg": "Välkommen till hotellets booking-api"}
 
 @app.get("/rooms")
-def get_rooms():
-    return rooms
+def rooms():
+    return temp_rooms
 
-@app.get("/api/ip")
-def ip(request: Request):
-    return { "ip": request.client.host }
+@app.post("/bookings")
+def create_bookings():
+    # skapa bokning i databasen, INSERT INFO bookings...
+    return {"msg": "Bokning skapad!"}
 
 
-@app.get("/ip, response_class=HTMLResponse")
-def ip(request: Request):
-    return f"<h1>Din ip här {request.client.host}</h1>"
 
-@app.get("/items/{id}")
-def read_item(item_id: int, q: str = None):
-    return {"id": id, "q": q}
 
